@@ -1,0 +1,8 @@
+package com.wunderman.springboot;
+class WelcomeService{
+	
+	public String retriveSecondMessage()
+	{
+		return "Component scanning with different package!"
+	}
+}

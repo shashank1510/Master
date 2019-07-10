@@ -1,0 +1,32 @@
+package com.wunderman.runner;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@SpringBootApplication
+//public class RunnerApplication implements ApplicationRunner {
+	public class RunnerApplication implements CommandLineRunner {
+	@Value("${spring.application.name}")
+	public String name;
+	public static void main(String[] args) {
+
+		SpringApplication.run(RunnerApplication.class, args);
+	}
+	@RequestMapping(value = "/")
+	   public String name() {
+	      return name;
+	   }
+	/*@Override
+	public void run(ApplicationArguments arg0) throws Exception {
+		System.out.println("Hello World from Application Runner");
+	}*/
+
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("Hello World from Command Line Runner");
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.wunderman.service;
+
+import org.springframework.stereotype.Component;
+
+@Component
+class WelcomeService{
+	
+	public String retriveSecondMessage()
+	{
+		return "Component scanning with different package!";
+	}
+}

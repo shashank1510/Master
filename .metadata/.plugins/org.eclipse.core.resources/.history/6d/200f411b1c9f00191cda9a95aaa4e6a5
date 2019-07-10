@@ -1,0 +1,34 @@
+package com.wunderman.springboot;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class WelcomeController {
+
+	// Dependency
+	// private WelcomeService service = new WelcomeService();
+	// Injected here
+	@Autowired //Auto wiring
+	private WelcomeService service;
+
+	@RequestMapping("/welcome")
+	public String welcome() {
+		return service.retriveMessage();
+	}
+
+}
+
+// Spring to manage this bean and create an instance of this!
+//Spring
+@Component
+class WelcomeService {
+	public String retriveMessage() {
+		// Complex Method
+		return "Good morning!";
+
+	}
+
+}
